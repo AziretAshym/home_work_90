@@ -51,8 +51,10 @@ const App = () => {
         if (ctx) {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             pixels.forEach((pixel) => {
+                ctx.beginPath();
+                ctx.arc(pixel.x, pixel.y, 10, 0, Math.PI * 2);
                 ctx.fillStyle = pixel.color;
-                ctx.fillRect(pixel.x, pixel.y, 10, 10);
+                ctx.fill();
             });
         }
     };
